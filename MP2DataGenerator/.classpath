@@ -7,6 +7,5 @@
 	</classpathentry>
 	<classpathentry kind="src" path="MP2DataGenerator/src"/>
 	<classpathentry exported="true" kind="lib" path="MP2DataGenerator/postgresql-jdbc.jar"/>
-	<classpathentry kind="lib" path="D:/salma/UNI/Sem6/DBII_CSEN604/Project2/mini-project-2_32361/mini-project-2/MP2DataGenerator/MP2DataGenerator/postgresql-jdbc.jar"/>
 	<classpathentry kind="output" path="MP2DataGenerator/bin"/>
 </classpath>
