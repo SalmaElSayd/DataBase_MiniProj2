@@ -526,6 +526,7 @@ public class Schema1 {
 	public static void populateTakes(Connection conn) {
 		double j = 0.7;
 		for (int i = 1; i < 6000; i++) {
+			
 			if (j == 5)
 				j = 0.7;
 			if (insertTakes(i, i, j, conn) == 0) {
