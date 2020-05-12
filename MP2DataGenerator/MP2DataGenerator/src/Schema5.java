@@ -836,7 +836,7 @@ public class Schema5 {
 	}
 
 	public static void populateSoccerCountry(Connection conn) {
-		for (int i = 1; i < 10000; i++) {
+		for (int i = 1; i < 196; i++) {
 
 			if (insertSoccerCountry(i, "GUC", "Germany" + i, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
@@ -850,7 +850,7 @@ public class Schema5 {
 	public static void populatePlayerMast(Connection conn) {
 		for (int i = 1; i < 10000; i++) {
 
-			if (insertPlayerMast(i, i, i, "Salah" + i, i,
+			if (insertPlayerMast(i, i%195+1, i, "Salah" + i, i,
 					new Date(12, 2, 1999), 19, "Liverpool" + i, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
 				break;
@@ -871,9 +871,10 @@ public class Schema5 {
 	}
 
 	public static void populateSoccerCity(Connection conn) {
+		
 		for (int i = 1; i < 10000; i++) {
 
-			if (insertSoccerCity(i, "Name" + i, i, conn) == 0) {
+			if (insertSoccerCity(i, "Name" + i, i%195+1, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
 				break;
 			} else
@@ -895,7 +896,7 @@ public class Schema5 {
 	public static void populateRefreeMast(Connection conn) {
 		for (int i = 1; i < 10000; i++) {
 
-			if (insertRefreeMast(i, "Name" + i, i, conn) == 0) {
+			if (insertRefreeMast(i, "Name" + i, i%195+1, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
 				break;
 			} else
@@ -917,9 +918,9 @@ public class Schema5 {
 	@SuppressWarnings("deprecation")
 	public static void populateMatchMast(Connection conn) {
 
-		for (int i = 1; i < 10000; i++) {
+		for (int i = 1; i < 5001; i++) {
 			String result = "Win";
-			if (i > 5000)
+			if (i > 2500)
 				result = "Lose";
 			if (insertMatchMast(i, "a", new Date(28, 3, 2019), result, "b",
 					"1-2", i, i, 1000 + i, i, i, i, conn) == 0) {
@@ -957,7 +958,7 @@ public class Schema5 {
 
 	public static void populateSoccerTeam(Connection conn) {
 
-		for (int i = 1; i < 10000; i++) {
+		for (int i = 1; i < 196; i++) {
 
 			if (insertSoccerTeam(i, "a", i, i, i, i, i, i, i, i, i, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
