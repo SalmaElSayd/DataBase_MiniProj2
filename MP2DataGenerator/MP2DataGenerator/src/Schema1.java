@@ -434,7 +434,7 @@ public class Schema1 {
 	}
 
 	public static void populateInstructor(Connection conn) {
-		int id=1;
+		int id=0;
 		for (int j = 1; j<16;j++) {
 		for (int i = 1; i < 10; i++) {
 			id++;
@@ -471,14 +471,16 @@ public class Schema1 {
 
 	public static void populateStudent(Connection conn) {
 		int id=1;
-		for (int j=0;j<16;j++) {
+		for (int j=1;j<16;j++) {
 		for (int i = 1; i < 401; i++) {//TODO
-			if (insertStudent(id, "name" + i, i, "CS" + j, i, conn) == 0) {
+			
+			if (insertStudent(id, "name" + i, i%181, "CS" + j, (i%9)+1, conn) == 0) {
 				System.err.println("insertion of record " + id + " failed");
 				break;
 			} else
 				System.out.println("insertion was successful");
-		}
+		
+			id++;}
 		}
 	}
 
@@ -487,19 +489,20 @@ public class Schema1 {
 		for (int j = 1; j < 16; j++) {
 			
 		for (int i = 1; i < 13; i++) {
-			id++;
+			
 			if (insertCourse(id, "CSEN" + i, i, "CS" + j, conn) == 0) {
 				System.err.println("insertion of record " + id + " failed");
 				break;
 			} else
 				System.out.println("insertion was successful");
-		}
+			id++;
+			}
 		}
 		
 	}
 
 	public static void populatePrerequiste(Connection conn) {
-		for (int i = 1; i < 10000; i++) {
+		for (int i = 1; i < 16; i++) {
 			if (insertPrerequiste(i, i, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
 				break;
@@ -511,7 +514,7 @@ public class Schema1 {
 	public static void populateSection(Connection conn) {
 		int j = 1;
 		for (int i = 1; i < 10000; i++) {
-			if (insertSection(i, i, 2019, i, i, j, j, conn) == 0) {
+			if (insertSection(i, i, 2019, i%135+1,i%180+1 , j, j, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
 				break;
 			} else
@@ -522,7 +525,7 @@ public class Schema1 {
 
 	public static void populateTakes(Connection conn) {
 		double j = 0.7;
-		for (int i = 1; i < 10000; i++) {
+		for (int i = 1; i < 6000; i++) {
 			if (j == 5)
 				j = 0.7;
 			if (insertTakes(i, i, j, conn) == 0) {
