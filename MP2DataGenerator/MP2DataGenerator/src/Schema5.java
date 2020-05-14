@@ -907,7 +907,7 @@ public class Schema5 {
 	public static void populateAsstRefreeMast(Connection conn) {
 		for (int i = 1; i < 10000; i++) {
 
-			if (insertAsstRefreeMast(i, "Name" + i, i, conn) == 0) {
+			if (insertAsstRefreeMast(i, "Name" + i, i%195+1, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
 				break;
 			} else
@@ -948,7 +948,7 @@ public class Schema5 {
 	public static void populateTeamCoach(Connection conn) {
 		for (int i = 1; i < 10000; i++) {
 
-			if (insertTeamCoaches(i, i, conn) == 0) {
+			if (insertTeamCoaches(i%195+1, i, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
 				break;
 			} else
@@ -958,7 +958,7 @@ public class Schema5 {
 
 	public static void populateSoccerTeam(Connection conn) {
 
-		for (int i = 1; i < 196; i++) {
+		for (int i = 1; i < 195; i++) {
 
 			if (insertSoccerTeam(i, "a", i, i, i, i, i, i, i, i, i, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
