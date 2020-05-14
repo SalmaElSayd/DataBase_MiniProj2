@@ -937,7 +937,7 @@ public class Schema5 {
 			String result = "W";
 			if (i > 5000)
 				result = "L";
-			if (insertMatchDetails(i, "a", i, result, "b", i, i, i, i, conn) == 0) {
+			if (insertMatchDetails(i, "a", i%195+1, result, "b", i, i, i, i, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
 				break;
 			} else
@@ -972,7 +972,7 @@ public class Schema5 {
 
 		for (int i = 1; i < 10000; i++) {
 
-			if (insertPlayerInOut(i, i, i, "a", i, "ab", i, conn) == 0) {
+			if (insertPlayerInOut(i%195+1, i%5000+1, i, "a", i, "ab", i, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
 				break;
 			} else
@@ -983,7 +983,7 @@ public class Schema5 {
 	public static void populateGoalDetails(Connection conn) {
 
 		for (int i = 1; i < 10000; i++) {
-			if (insertGoalDetails(i, i, i, i, i, "b", "i", "m", i, conn) == 0) {
+			if (insertGoalDetails(i, i%5000+1, i, i%195+1, i, "b", "i", "m", i, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
 				break;
 			} else
@@ -1083,7 +1083,7 @@ public class Schema5 {
 
 			connection = DriverManager.getConnection(
 					"jdbc:postgresql://127.0.0.1:5432/schema5", "postgres",
-					"YOURPASSWORD");
+					"6626");
 			insertSchema5(connection);
 
 		} catch (SQLException e) {
