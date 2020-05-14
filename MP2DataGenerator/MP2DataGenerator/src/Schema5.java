@@ -994,7 +994,7 @@ public class Schema5 {
 	public static void populatePenaltyShootOut(Connection conn) {
 
 		for (int i = 1; i < 10000; i++) {
-			if (insertPenaltyShootOut(i, i, i, i, "b", i, conn) == 0) {
+			if (insertPenaltyShootOut(i, i%5000+1, i%195+1, i, "b", i, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
 				break;
 			} else
@@ -1005,7 +1005,7 @@ public class Schema5 {
 	public static void populateMatchCaptain(Connection conn) {
 		for (int i = 1; i < 10000; i++) {
 
-			if (insertMatchCaptain(i, i, i, conn) == 0) {
+			if (insertMatchCaptain(i%5000+1, i%195+1, i, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
 				break;
 			} else
@@ -1016,7 +1016,7 @@ public class Schema5 {
 	public static void populatePenaltyGk(Connection conn) {
 		for (int i = 1; i < 10000; i++) {
 
-			if (insertPenaltyGk(i, i, i, conn) == 0) {
+			if (insertPenaltyGk(i%5000+1, i%195+1, i, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
 				break;
 			} else
@@ -1028,7 +1028,7 @@ public class Schema5 {
 
 		for (int i = 1; i < 10000; i++) {
 
-			if (insertPlayerBooked(i, i, i, "a", "b", "ab", i, conn) == 0) {
+			if (insertPlayerBooked(i%5000+1, i%195+1, i, "a", "b", "ab", i, conn) == 0) {
 				System.err.println("insertion of record " + i + " failed");
 				break;
 			} else
